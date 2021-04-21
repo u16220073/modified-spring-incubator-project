@@ -49,7 +49,7 @@ public class CustomersController {
         }
 
         LOGGER.info("No customers could be found");
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>("No customers found", HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("{id}")

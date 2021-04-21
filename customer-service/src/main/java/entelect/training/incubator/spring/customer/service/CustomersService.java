@@ -43,9 +43,14 @@ public class CustomersService {
     public Customer searchCustomers(CustomerSearchRequest searchRequest) {
         Map<SearchType, Supplier<Optional<Customer>>> searchStrategies = new HashMap<>();
 
-        searchStrategies.put(SearchType.NAME_SEARCH, () -> customerRepository.findByFirstNameAndLastName(searchRequest.getFirstName(), searchRequest.getLastName()));
-        searchStrategies.put(SearchType.PASSPORT_SEARCH, () -> customerRepository.findByPassportNumber(searchRequest.getPassport()));
-        searchStrategies.put(SearchType.USER_SEARCH, () -> customerRepository.findByUsername(searchRequest.getPassport()));
+        searchStrategies.put(SearchType.NAME_SEARCH, () -> customerRepository
+                .findByFirstNameAndLastName(searchRequest.getFirstName(), searchRequest.getLastName()));
+
+        searchStrategies.put(SearchType.PASSPORT_SEARCH, () -> customerRepository
+                .findByPassportNumber(searchRequest.getPassport()));
+
+        searchStrategies.put(SearchType.USER_SEARCH, () -> customerRepository
+                .findByUsername(searchRequest.getPassport()));
 
         Optional<Customer> customerOptional = searchStrategies.get(searchRequest.getSearchType()).get();
 
