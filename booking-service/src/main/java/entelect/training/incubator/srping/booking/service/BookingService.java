@@ -53,9 +53,9 @@ public class BookingService {
         return bookings;
     }
 
-    public Booking getBookingByReferenceNumber(String reference_number){
-        Optional<Booking> bookingOptional = bookingRepository.findByReferenceNumber(reference_number);
-        return bookingOptional.orElse(null);
-    }
+//    public Booking getBookingByReferenceNumber(String reference_number){
+//        Optional<Booking> bookingOptional = bookingRepository.findByReferenceNumber(reference_number);
+//        return bookingOptional.orElse(null);
+//    }
 
 }
